@@ -1,18 +1,34 @@
-import React from 'react'
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from './Login';
-import Register from './Register';
-import Wishlist from './Wishlist';
-import Movies from './Movies';
+import Login from "./Login";
+import Register from "./Register";
+import Wishlist from "./Wishlist";
+import Movies from "./Movies";
+import PrivateRoute from "../component/PrivateRoute";
 
 function MainRoutes() {
-    return (
-        <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/movies" element={<Movies />} />
-        </Routes>)
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route
+        path="/wishlist"
+        element={
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/movies"
+        element={
+          <PrivateRoute>
+            <Movies />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
+  );
 }
 
-export default MainRoutes
+export default MainRoutes;

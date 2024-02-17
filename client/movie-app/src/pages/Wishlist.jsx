@@ -10,7 +10,7 @@ function Wishlist() {
 
   useEffect(() => {
     let token = localStorage.getItem("Token");
-    axios.get('http://localhost:8080/wishlist', {
+    axios.get('https://propftx-8u8u.onrender.com/wishlist', {
       headers: {
         token: `Bearer ${token}`,
       }

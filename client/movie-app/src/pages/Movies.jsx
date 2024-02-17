@@ -12,7 +12,7 @@ function Movies() {
   const [wishlistLoading, setWishlistLoading] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/movies')
+    axios.get('https://propftx-8u8u.onrender.com/movies')
       .then(response => {
         setMovies(response.data.movies);
         setLoading(false);
@@ -26,7 +26,7 @@ function Movies() {
   const handleAddToWishlist = (movie) => {
     setWishlistLoading(true);
     let token = localStorage.getItem("Token");
-    axios.post('http://localhost:8080/wishlist', movie, {
+    axios.post('https://propftx-8u8u.onrender.com/wishlist', movie, {
       headers: {
         token: `Bearer ${token}`,
       }
